@@ -37,6 +37,7 @@ class UserController{
         try{
             const activation_Link = req.params.link
             await userService.activate(activation_Link)
+            return res.redirect('google.com')
         }catch(e){
 
         }

@@ -6,6 +6,8 @@ require('dotenv').config()
 
 const router = require('./router/index.js')
 
+const errorMiddleware = require('./middlewares/errorMiddleware.js')
+
 const port = process.env.PORT || 7000
 const db = process.env.DB_URL
 
@@ -16,6 +18,7 @@ app.use(express.json())
 app.use(cookieParser())
 app.use(cors())
 app.use('/api', router)
+app.use(errorMiddleware)
 
 const start = async () =>{
     try{
