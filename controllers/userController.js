@@ -3,7 +3,6 @@ const userService = require('../service/userService.js')
 class UserController{
     async registration(req, res, next){
         try{
-            debugger
             const {email, password} = req.body
             const user_data = await userService.registration(email, password)
             //refresh
