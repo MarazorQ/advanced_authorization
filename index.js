@@ -9,6 +9,11 @@ const db = process.env.DB_URL
 
 const app = express()
 
+//middlware
+app.use(express.json())
+app.use(cookieParser())
+app.use(cors())
+
 const start = async () =>{
     try{
         await mongoose.connect(db, {
