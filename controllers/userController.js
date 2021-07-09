@@ -35,7 +35,8 @@ class UserController{
     }
     async activate(req, res, next){
         try{
-
+            const activation_Link = req.params.link
+            await userService.activate(activation_Link)
         }catch(e){
 
         }

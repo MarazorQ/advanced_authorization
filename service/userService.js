@@ -29,6 +29,14 @@ class UserService{
             user: user_dto
         }
     }
+    async activate(activation_Link){
+        const user = await UserModel.findOne({activationLink: activation_Link})
+        if (!user){
+            return 'Error link'
+        }
+        user.isActivation = true
+        await user.save()
+    }
 }
 
 module.exports = new UserService()
